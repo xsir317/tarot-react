@@ -1,0 +1,183 @@
+/* src/styles/main.css */
+/* 基础重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 移动端容器 */
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 15px;
+  min-height: 100vh;
+}
+
+/* 标签栏样式 */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.tabs a {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tabs a:hover {
+  background: #f8f9fa;
+}
+
+/* 书籍列表 */
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+
+.book-item {
+  aspect-ratio: 1;
+  padding: 8px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.book-item:hover {
+  transform: translateY(-2px);
+}
+
+.book-item .book-short {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.book-item .book-name {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+/* 章节按钮 */
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.chapter-btn {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+}
+
+/* 内容区域 */
+.verses {
+  line-height: 1.8;
+  font-size: 16px;
+  color: #333;
+}
+
+.verses sup {
+  font-size: 12px;
+  color: #666;
+  margin-right: 4px;
+}
+
+/* 导航按钮 */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button:disabled {
+  background: #6c757d;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+/* 修改章节按钮样式 */
+.chapter-btn {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+  color: #333; /* 新增文字颜色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px; /* 保证按钮高度 */
+}
+
+/* 移动端适配 */
+@media (max-width: 480px) {
+  .chapters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .chapter-btn {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* 章节控制按钮布局 */
+.chapter-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.chapter-nav {
+  display: flex;
+  gap: 10px;
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+  .chapter-controls {
+    flex-direction: column;
+  }
+
+  .chapter-nav {
+    justify-content: space-between;
+  }
+
+  .chapter-nav button {
+    flex: 1;
+  }
+
+  .back-btn {
+    order: -1;
+  }
+}

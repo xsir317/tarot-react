@@ -1,0 +1,100 @@
+:root {
+  --transition-speed: 0.3s;
+}
+
+/* 确保这个文件包含所有主题的样式 */
+.theme-brown-light {
+  --primary-color: #8B4513;
+  --secondary-color: #D2B48C;
+  --background-color: #FFF8DC;
+  --text-color: #333;
+  /* 其他颜色变量 */
+}
+
+.theme-green-light {
+  --primary-color: #2E8B57;
+  --secondary-color: #98FB98;
+  --background-color: #F0FFF0;
+  --text-color: #333;
+  /* 其他颜色变量 */
+}
+
+.theme-dark {
+  --primary-color: #4682B4;
+  --secondary-color: #708090;
+  --background-color: #1E1E1E;
+  --text-color: #F5F5F5;
+}
+
+/* 主题预览样式 */
+.theme-preview.brown-light {
+  background-color: #8B4513;
+}
+
+.theme-preview.green-light {
+  background-color: #2E8B57;
+}
+
+.theme-preview.dark {
+  background-color: #4682B4;
+}
+
+.theme-brown-light {
+  --bg-primary: #f5f0eb;
+  --bg-secondary: #e8e0d8;
+  --text-primary: #2c1810;
+  --text-secondary: #5a4a42;
+  --border-color: #d1c3b6;
+  --verses-text: #2c1810;
+  --feature-bg: #e8e0d8;
+}
+
+.theme-green-light {
+  --bg-primary: #f0f7f0;
+  --bg-secondary: #e6efe6;
+  --text-primary: #1a331a;
+  --text-secondary: #426142;
+  --border-color: #c1d6c1;
+  --verses-text: #1a331a;
+  --feature-bg: #e6efe6;
+}
+
+.theme-dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #c8c8c8;     /* 调整主要文字颜色，避免太亮 */
+  --text-secondary: #a0a0a0;   /* 调整次要文字颜色 */
+  --border-color: #4a4a4a;
+  --verses-text: #e0e0e0;      /* 调整经文文字颜色 */
+  --feature-bg: #333333;
+  --book-item-bg: #2d2d2d;     /* 新增：书籍项目背景色 */
+  --book-item-hover: #3d3d3d;  /* 新增：书籍项目悬停背景色 */
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.verses {
+  color: var(--verses-text);
+}
+
+.feature-icons  , .user-info-section {
+  background-color: var(--feature-bg);
+}
+
+.feature-icons .feature-item {
+  color: var(--text-primary);
+}
+
+/* 在文件末尾添加以下样式 */
+.theme-dark .book-item {
+  background-color: var(--book-item-bg);
+  transition: background-color var(--transition-speed);
+}
+
+.theme-dark .book-item:hover {
+  background-color: var(--book-item-hover);
+}
