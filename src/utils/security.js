@@ -36,7 +36,7 @@ class SecurityHandler {
     // 计算请求校验和
     calculateChecksum(requestUri, content, timestamp) {
         const checkString = `REQUEST_URI=${requestUri}&content=${content}&timestamp=${timestamp}&secret_key=${this.aesKey}`;
-        // console.log('checkString:', checkString);
+        //console.log('checkString:', checkString);
         return CryptoJS.MD5(checkString).toString();
     }
 
