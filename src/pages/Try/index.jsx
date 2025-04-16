@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import api from '../../api';
 import defaultCardBack from '../../assets/images/default.svg';
 import './styles.css';
@@ -43,9 +44,8 @@ const Try = () => {
             interpretInterval = setInterval(async () => {
                 try {
                     const response = await api.post('/tarot/divine/detail', { id: recordId });
-                    //TODO 这里观察一下 response 的结构，有一点问题要修复
-                    if (response.interpret) {
-                        setResultText(response.interpret);
+                    if (response.interpret?.[0]?.answer) {
+                        setResultText(response.interpret[0].answer);
                         clearInterval(interpretInterval);
                     }
                 } catch (error) {
@@ -57,7 +57,7 @@ const Try = () => {
     }, [recordId, flippedCards]);
 
     return (
-        <div className="try-container">
+        <div className="try-container" data-state={gameState}>
             <div className="upper-section">
                 <div className="cards-positions">
                     {[0, 1, 2].map((position) => (
@@ -122,7 +122,7 @@ const Try = () => {
 
                 {gameState === 'result' && resultText && (
                     <div className="result-text">
-                        {resultText}
+                        <ReactMarkdown>{resultText}</ReactMarkdown>
                     </div>
                 )}
             </div>
