@@ -23,8 +23,8 @@ function App() {
                     <Route path="about" element={<div>关于我们</div>} />
                     <Route path="terms" element={<div>使用条款</div>} />
                     <Route path="privacy" element={<div>隐私政策</div>} />
-                    <Route path="try" element={<Try />} />
                 </Route>
+                <Route path="try" element={<Try />} />
             </Routes>
         </Router>
     );

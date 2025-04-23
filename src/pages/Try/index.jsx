@@ -6,7 +6,7 @@ import './styles.css';
 
 const Try = () => {
     const [gameState, setGameState] = useState('input'); // input, animation, result
-    const [question, setQuestion] = useState('');
+    const [question, setQuestion] = useState('我还有多久结束单身？');
     const [selectedCards, setSelectedCards] = useState([]);
     const [resultText, setResultText] = useState('');
     const [recordId, setRecordId] = useState(null);
