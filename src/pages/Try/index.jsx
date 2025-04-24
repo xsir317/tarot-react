@@ -120,9 +120,22 @@ const Try = () => {
                     </div>
                 )}
 
-                {gameState === 'result' && resultText && (
+                {gameState === 'result' && flippedCards.length === 3 && (
                     <div className="result-text">
-                        <ReactMarkdown>{resultText}</ReactMarkdown>
+                        {resultText ? (
+                            <ReactMarkdown>{resultText}</ReactMarkdown>
+                        ) : (
+                            <div>
+                                <p>我们看到三张牌的内容分别是：</p>
+                                <p>
+                                    {selectedCards.map((card, index) => (
+                                        flippedCards.includes(index) && 
+                                        `${card.position ? '正位' : '逆位'}的${card.name}${index < 2 ? '，' : ''}`
+                                    ))}
+                                </p>
+                                <p>正在擦亮水晶球，这里需要一点耐心。</p>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
